@@ -1,0 +1,32 @@
+local AF = require("AF")
+
+--track0:size,100,1920,100
+--track1:l,1,12,1,1
+--track2:m,1,12,4,1
+--track3:n,1,12,1,1
+
+--dialog:color/col,color=0xffffff;width,width=4;
+
+local l = obj.track1
+local m = obj.track2
+local n = obj.track3
+
+local g = gcd(m, n)
+
+m = m / g
+n = n / g
+
+
+local r = obj.track0
+
+obj.load("figure", "‰~", color, width)
+
+for h = 0, l - 1 do
+  for i = 0, m - 1 do
+    local p0_x = r * math.sin(2 * math.pi * (i * n / m + obj.rz / 360 + h / l / m))
+    local p0_y = -r * math.cos(2 * math.pi * (i * n / m + obj.rz / 360 + h / l / m))
+    local p1_x = r * math.sin(2 * math.pi * ((i + 1) * n / m + obj.rz / 360 + h / l / m))
+    local p1_y = -r * math.cos(2 * math.pi * ((i + 1) * n / m + obj.rz / 360 + h / l / m))
+    line(obj, p0_x, p0_y, p1_x, p1_y)
+  end
+end
