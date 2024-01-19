@@ -1,17 +1,17 @@
 require("AF")
 
 --track0:size,100,1920,100
---track1:l,1,12,1,1
---track2:m,-24,24,2,1
---track3:n,1,24,1,1
+--track1:m,-24,24,2,1
+--track2:n,1,24,1,1
+--track3:o,0,3,1,0.01
 
---dialog:color/col,color=0xff0000;width,width=4;o,o=1;
+--dialog:color/col,color=0xff0000;width,width=4;
 
 obj.load("figure", "‰~", color, width)
 
-local l = obj.track1
-local m = obj.track2
-local n = obj.track3
+local m = obj.track1
+local n = obj.track2
+local o = obj.track3
 
 local g = gcd(m, n)
 
@@ -25,7 +25,7 @@ local rd = rm * o
 
 local d = math.floor(rc) * 3
 
-for h = 0, l - 1 do
+for h = 0, g - 1 do
   for i = 0, d * math.abs(m) + 1 do
     local x = (rm + rc) * math.sin(2 * math.pi / d * i) - rd * math.sin((rc / rm + 1) * (2 * math.pi / d * i))
     local y = -(rm + rc) * math.cos(2 * math.pi / d * i) + rd * math.cos((rc / rm + 1) * (2 * math.pi / d * i))
@@ -33,7 +33,7 @@ for h = 0, l - 1 do
     vec["x"] = x
     vec["y"] = y
 
-    local rotated = rot(vec, (obj.rz / 360 + h / l / m) * 2 * math.pi)
+    local rotated = rot(vec, (obj.rz / 360 + h / g / m) * 2 * math.pi)
     dot(obj, rotated["x"], rotated["y"])
   end
 end
