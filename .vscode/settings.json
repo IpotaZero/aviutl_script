@@ -1,0 +1,12 @@
+{
+  "Lua.diagnostics.globals": [
+    "color",
+    "obj",
+    "width",
+    "o",
+    "dot",
+    "line",
+    "gcd",
+    "rot"
+  ]
+}

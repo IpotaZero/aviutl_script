@@ -1,11 +1,11 @@
-local AF = require("AF")
+require("AF")
 
 --track0:size,100,1920,100
 --track1:l,1,12,1,1
---track2:m,-12,12,2,1
---track3:n,1,12,1,1
+--track2:m,-24,24,2,1
+--track3:n,1,24,1,1
 
---dialog:color/col,color=0xffffff;width,width=4;o,o=1;
+--dialog:color/col,color=0xff0000;width,width=4;o,o=1;
 
 obj.load("figure", "‰~", color, width)
 
