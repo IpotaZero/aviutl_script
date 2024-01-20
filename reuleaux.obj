@@ -1,0 +1,32 @@
+require("AF")
+
+--track0:size,1,1920,100,1
+--track1:m,-24,24,4,1
+--track2:n,1,24,1,1
+
+--dialog:color/col,color=0xff0000;width,width=4;
+
+obj.load("figure", "‰~", color, width)
+
+local r = obj.track0
+local m = obj.track1
+local n = obj.track2
+
+local g = math.abs(gcd(m, n))
+
+local m = m / g
+local n = n / g
+
+local angle = math.pi / m * n
+local length = 2 * r * math.cos(angle / 2)
+
+for h = 0, g - 1 do
+	for i = 0, math.abs(m) - 1 do
+		local point = rot({ x = 0, y = -r }, 2 * math.pi / m * n * i + obj.rz + 2 * math.pi * h / g / m)
+
+		arc(obj, point["x"], point["y"], length,
+			math.pi / 2 + 2 * math.pi / m * n * i - angle / 2 + obj.rz + 2 * math.pi * h / g / m,
+			math.pi / 2 + 2 * math.pi / m * n * i + angle / 2 + obj.rz + 2 * math.pi * h / g / m
+		)
+	end
+end

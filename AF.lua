@@ -29,3 +29,14 @@ function rot(vec, theta)
   a["y"] = vec["x"] * math.sin(theta) + vec["y"] * math.cos(theta)
   return a
 end
+
+function arc(obj, x, y, r, angle_start, angle_end)
+  local d = 63
+  for i = 0, d - 1 do
+    local x0 = x + math.cos(angle_start + (angle_end - angle_start) * i / d) * r
+    local y0 = y + math.sin(angle_start + (angle_end - angle_start) * i / d) * r
+    local x1 = x + math.cos(angle_start + (angle_end - angle_start) * (i + 1) / d) * r
+    local y1 = y + math.sin(angle_start + (angle_end - angle_start) * (i + 1) / d) * r
+    line(obj, x0, y0, x1, y1)
+  end
+end
