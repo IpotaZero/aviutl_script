@@ -1,7 +1,7 @@
 require("AF")
 
 --track0:size,1,1920,100,1
---track1:m,-24,24,4,1
+--track1:m,1,24,4,1
 --track2:n,1,24,1,1
 
 --dialog:color/col,color=0xff0000;width,width=4;
